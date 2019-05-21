@@ -1,0 +1,19 @@
+Hi, I can totally understand that you may encounter some problems during the course. Everyone will face some difficulty when he/she tries to learn something new, this is the process of learning. I believe you can make it and you should also believe yourself! Here are some suggestions which I hope can give you some help: 1) try  to adjust the speed the video if you feel it is too hard to understand 2) Here are some external materials regarding this topic(I will find some other basic external materials like blog/book to help them), I suggest that you read them firstly and they will help you understand the topic 3) If you do not remember what to do next during the project, I suggest that you can keep the video open when doing the project.  If you still feel the course is too difficult for you, then I suggest you can take some preliminary courses like xx. (I will list some courses here).  If you want to unsubscribe the current one, here is what you can do(I will let them know how to unsubscribe).  
+
+My thought process: In my opinion, the student firstly complains that the course is frustrating and it seems that he loses confidence, and then he gives some details like he cannot get the video and remember the next steps. Finally he asks how to unsubscribe the course. So my answer covers these three aspects. I think firstly encouraging the student is important, then I give some help and advice regarding the difficulty he has met and finally I tell him how to unsubscribe the course if he still feels difficult because this is what he cares too.
+
+
+Dear Udacity Service Lead, 
+
+I have got lots of confusion from students recently regarding the a certain exercise which is "Define a procedure find_last that accepts two strings and returns the last position where the target string occurs.". The description seems confusing because it does not tell the students which string is the target one and which is the source one. Can we add some more description here to clarify the point which can help them understand better. Also I suggest we can add some input/ouput examples here, I think examples can make student understand the problem more intuitively. Look forward to hear your feedback!
+
+Kind regards,
+Hao 
+
+
+
+I have failed the tour guide app project 6 times now! Every time I submit a new reviewer fails me on another point of the project. It’s starting to feel like reviewers keep failing me so they can make more money. I’m at wit’s end wanting to move forward in my Nanodegree, but at this rate, I feel like I’ll never pass this project. Can someone help me?
+
+Hi there,
+
+Thanks for your feedback. I can totally understand that you may feel frustrated after failing 6 times, I think reviewers are just responsible and they must have their own considerations. And I believe a strict standard is also good for you. I suggest that you can read carefully about the feedback from reviewers and try to figure out where you should improve. And try to improve all the points together. Sometimes you may forget the old point when you improve the new point. I would also remind you that you can have a careful look at the project description to see whether you miss some points there. Good luck to you and I believe you can make it!Come on!
