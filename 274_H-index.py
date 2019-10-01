@@ -25,7 +25,7 @@ class Solution:
             return c
         # if i==c: #i+1>c
         #     return c
-        return i #前面的citation是大于个数，而如果i+1!=c,就是i+1>c,所以c是小于个数的，从c<i+1，那么必然c<=i，从而后面的c也都小于i，前面个数也满足，正好i个，后面也满足
+        return i #前面的citation是大于个数；而如果i+1!=c,就是i+1>c,所以c是小于个数的，从c<i+1，那么必然c<=i，从而后面的c也都小于i，前面个数也满足，正好i个，后面也满足
         
 # 60 50 40 1 0
 # 6 5 4 1 0
