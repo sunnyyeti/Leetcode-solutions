@@ -41,7 +41,10 @@ class Solution:
         if node is None:
             return start-1
         cnt = self.traverse(node.left,start)
+        if cnt=="S":
+            return "S"
         cur_cnt = cnt+1
         if cur_cnt==self.k:
             self.res = node.val
+            return "S"
         return self.traverse(node.right,cur_cnt+1)
