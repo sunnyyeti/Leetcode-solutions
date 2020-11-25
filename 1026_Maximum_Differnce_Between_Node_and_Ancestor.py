@@ -55,3 +55,30 @@ class Solution(object):
         if descent_min != float("inf"):
             self.max = max(abs(node.val-descent_min),self.max)
         return max(descent_max,node.val),min(descent_min,node.val)
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxAncestorDiff(self, root: TreeNode) -> int:
+        max_ans = float("-inf")
+        def helper(root):
+            nonlocal max_ans
+            if root is None:
+                return float("inf"),float("-inf")
+            if root.left or root.right:
+                lmin,lmax = helper(root.left)
+                rmin,rmax = helper(root.right)
+                dmin = min(lmin,rmin)
+                dmax = max(lmax,rmax)
+                max_ans = max(abs(root.val-dmin),abs(root.val-dmax),max_ans)
+                return min(dmin,root.val),max(root.val,dmax)
+            else:
+                return root.val, root.val
+           
+                
+        helper(root)
+        return max_ans
