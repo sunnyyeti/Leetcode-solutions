@@ -58,6 +58,33 @@ class Solution:
                 self.visited.remove(c)
         return cnt
         
+class Solution:
+    def countArrangement(self, n: int) -> int:
+        visited = set()
+        ans = 0
+        def help(ind):
+            nonlocal ans
+            if ind == n+1:
+                ans+=1
+            for i in range(1,n//ind+1):
+                if ind*i not in visited:
+                    #print("add",ind,ind*i)
+                    visited.add(ind*i)
+                    help(ind+1)
+                    #print("remove",ind,ind*i)
+                    visited.remove(ind*i)
+            for i in range(2,ind+1):
+                if ind%i == 0:
+                    ele = ind//i
+                    if ele not in visited:
+                        #print("add",ind,ele)
+                        visited.add(ele)
+                        help(ind+1)
+                        #print("remove",ind,ele)
+                        visited.remove(ele)
+        help(1)
+        return ans
+                        
         
             
 

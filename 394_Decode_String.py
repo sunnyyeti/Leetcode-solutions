@@ -29,3 +29,21 @@ class Solution:
                     m*=10
                 stack.append(tmp*k)
         return ''.join(stack)
+
+class Solution:
+    def decodeString(self, s: str) -> str:
+        stack = []
+        for c in s:
+            if c!="]":
+                stack.append(c)
+            else:
+                substring = ""
+                while stack[-1] != '[':
+                    substring += stack.pop()
+                stack.pop()
+                repeat = ""
+                while stack and stack[-1].isdigit():
+                    repeat += stack.pop()
+                stack.extend(substring[::-1]*int(repeat[::-1]))
+        return "".join(stack)
+                
