@@ -47,3 +47,24 @@ class Solution:
                     return True
                 tar = str1[i]
         return False
+
+class Solution:
+    def findLongestWord(self, s: str, d: List[str]) -> str:
+        def is_reachable(s1,s2):
+            i,j = 0,0
+            t = s2[j]
+            while i<len(s1):
+                if s1[i]==t:
+                    j+=1
+                    if j==len(s2):
+                        return True
+                    t = s2[j]
+                i+=1
+            return False
+        ans = ""
+        for string in d:
+            if is_reachable(s,string):
+                #print(string)
+                if len(string)>len(ans) or (len(string)==len(ans) and string<ans):
+                    ans = string
+        return ans

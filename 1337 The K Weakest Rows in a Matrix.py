@@ -62,3 +62,9 @@ class Solution:
         soldiers = [num_soldiers(row) for row in mat]
         inds = sorted(range(len(mat)),key=lambda x:(soldiers[x],x))
         return inds[:k]
+
+class Solution:
+    def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+            rows =[ (row.count(1),i)for i,row in enumerate(mat)]
+            rows.sort()
+            return [r[1]  for r in rows[:k]]
