@@ -55,3 +55,20 @@ class Solution:
                 if i==len(popped):
                     return True
                 tar = popped[i]
+class Solution1:
+    def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
+        if len(pushed)==0:
+            return True
+        stack = []
+        i = 0
+        t = popped[i]
+        for p in pushed:
+            stack.append(p)
+            while stack and stack[-1]==t:
+                stack.pop()
+                i+=1
+                if i>=len(popped):
+                    break
+                t = popped[i]
+        return not stack
+                
