@@ -31,4 +31,11 @@ class Solution:
         return [rep,missing]
 
         
-                
+class Solution1:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        for i in range(len(nums)-1):
+            if nums[i]==nums[i+1]:
+                rep =  nums[i]
+        miss = (1+len(nums))*len(nums)//2-sum(nums)+rep
+        return [rep,miss]
