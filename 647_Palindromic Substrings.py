@@ -33,3 +33,23 @@ class Solution:
                     res += dp[i][j]
 
         return res
+
+class Solution2:
+    def countSubstrings(self, st: str) -> int:
+        def get(s,e):
+            if s>e:
+                return True
+            return store[(s,e)]
+        store = {}
+        ans = 0
+        for l in range(1,len(st)+1):
+            for s in range(len(st)-l+1):
+                e = s+l-1
+                if st[s]==st[e]:
+                    store[(s,e)] = get(s+1,e-1)
+                    ans += store[(s,e)]
+                else:
+                    store[(s,e)] = False
+        #print(store)
+        return ans
+                    
