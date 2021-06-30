@@ -44,34 +44,27 @@
 #         self.left = None
 #         self.right = None
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+from collections import deque
 class Solution:
-    def verticalTraversal(self, root: 'TreeNode') -> 'List[List[int]]':
-        min_x = max_x = min_y = max_y = 0
-        stack = [(root,0,0)]
-        res = {}
-        while stack:
-            node,x,y = stack.pop()
-            y_dict = res.setdefault(x,{})
-            y_dict.setdefault(y,[]).append(node.val)
-            min_x = min(x,min_x)
-            max_x = max(x,max_x)
-            min_y = min(y,min_y)
-            max_y = max(y,max_y)
+    def verticalOrder(self, root: TreeNode) -> List[List[int]]:
+        if not root:
+            return []
+        columns = {}
+        queue = deque([(root,0)])
+        while queue:
+            node, x = queue.popleft()
+            columns.setdefault(x,[]).append(node.val)
             if node.left:
-                stack.append((node.left,x-1,y-1))
+                queue.append((node.left,x-1))
             if node.right:
-                stack.append((node.right,x+1,y-1))
-        #print(res)
-        #print(min_x,max_x,min_y,max_y)
-        trav = []
-        for x in range(min_x,max_x+1):
-            if x in res:
-                tmp = []
-                y_dict = res[x]
-                for y in range(max_y,min_y-1,-1):
-                    if y in y_dict:
-                        vals = y_dict[y]
-                        vals.sort()
-                        tmp.extend(vals)
-                trav.append(tmp)
-        return trav
+                queue.append((node.right,x+1))
+        ans = []
+        for k in sorted(columns.keys()):
+            ans.append(columns[k])
+        return ans
