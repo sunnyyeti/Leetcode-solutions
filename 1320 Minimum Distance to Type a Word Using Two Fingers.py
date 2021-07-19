@@ -45,36 +45,27 @@
 # Each word[i] is an English uppercase letter.
 class Solution:
     def minimumDistance(self, word: str) -> int:
-        def key(a,b):
-            return tuple(sorted([a,b]))
-        def dis(a,b):
-            if a=="@" or b=="@":
+        self.cache = {}
+        def minDisHelper(letter1,letter2,start_ind):
+            if start_ind == len(word):
                 return 0
-            return abs(pos[a][0]-pos[b][0])+abs(pos[a][1]-pos[b][1])
-        if len(word)<=2:
-            return 0
-        pos = {}
-        for i,v in enumerate(range(ord("A"),ord("Z")+1)):
-            char = chr(v)
-            row = i//6
-            col = i%6
-            pos[char] = [row,col]
-        cache = {key(word[0],'@'):0}
-        new_cache = {}
-        for i in range(1,len(word)):
-            char = word[i]
-            pre_char = word[i-1]
-            for other_finger in "@"+word[:i-1]:
-                new_key = key(pre_char,char)
-                new_val = cache[key(pre_char,other_finger)]+dis(other_finger,char)
-                new_cache[new_key] = min(new_cache.get(new_key,float("inf")),new_val)
-                new_key = key(other_finger,char)
-                new_val = cache[key(pre_char,other_finger)]+dis(pre_char,char)
-                new_cache[new_key] = min(new_cache.get(new_key,float("inf")),new_val)
-            cache = new_cache
-            new_cache = {}
-        #print(cache)
-        return min(cache.values())
+            if letter1 > letter2:
+                letter1,letter2 = letter2,letter1
+            if (letter1,letter2,start_ind) in self.cache:
+                return self.cache[(letter1,letter2,start_ind)]
+            r1,c1 = divmod(ord(letter1)-ord('A'),6)
+            r2,c2 = divmod(ord(letter2)-ord('A'),6)
+            target_letter = word[start_ind]
+            rt,ct = divmod(ord(target_letter)-ord('A'),6)
+            dis1 = abs(r1-rt)+abs(c1-ct)+minDisHelper(target_letter,letter2,start_ind+1)
+            dis2 = abs(r2-rt)+abs(c2-ct)+minDisHelper(target_letter,letter1,start_ind+1)
+            min_dis = min(dis1,dis2)
+            self.cache[(letter1,letter2,start_ind)] = min_dis
+            return min_dis
+        ans = min(minDisHelper(word[0],char,0) for char in set(word))
+        return ans
+            
+                
                 
             
             
