@@ -28,21 +28,15 @@
 # Follow Up: Could you solve it in-place?
 class Solution:
     def sortArrayByParityII(self, nums: List[int]) -> List[int]:
-        odd = 0
-        even = 0
-        k = 0
-        while k < len(nums):
-            if k & 1:  # odd
-                while nums[odd] & 1 == 0:
-                    odd += 1
-                nums[k], nums[odd] = nums[odd], nums[k]
-                odd = max(odd, k+1)
-                even = max(even, k+1)
-            else:  # even
-                while nums[even] & 1:
-                    even += 1
-                nums[k], nums[even] = nums[even], nums[k]
-                odd = max(odd, k+1)
-                even = max(even, k+1)
-            k += 1
+        i,j = 0,1
+        while i<len(nums) and j<len(nums):
+            if nums[i]%2!=0 and nums[j]%2!=1:
+                nums[i],nums[j] = nums[j],nums[i]
+                i+=2
+                j+=2
+            else:
+                if nums[i]%2==0:
+                    i+=2
+                if nums[j]%2==1:
+                    j+=2
         return nums
