@@ -34,47 +34,27 @@
 
 # 1 <= instructions.length <= 100
 # instructions[i] is in {'G', 'L', 'R'}
-class Solution(object):
-    def isRobotBounded(self, instructions):
-        """
-        :type instructions: str
-        :rtype: bool
-        """
-        pos = (0,0,"up")
-        for ins in instructions:
-            pos = self.step(pos,ins)
-        if pos[0]==pos[1]==0:
-            return True
-        if pos[-1]!="up":
-            return True
-        return False
+class Solution:
+    def isRobotBounded(self, instructions: str) -> bool:
+        cur_state = (0,0,0)
+        for inst in instructions:
+            cur_state = self.step(cur_state,inst)
+        return cur_state[:2] == (0,0) or cur_state[2] != 0
         
-    def step(self,pos,ins):
-        if ins=="G":
-            if pos[-1]=="up":
-                return (pos[0],pos[1]+1,pos[2])
-            if pos[-1]=="left":
-                return (pos[0]-1,pos[1],pos[2])
-            if pos[-1]=="right":
-                return (pos[0]+1,pos[1],pos[2])
-            if pos[-1]=="down":
-                return (pos[0],pos[1]-1,pos[2])
-        if ins=="L":
-            if pos[-1]=="up":
-                return (pos[0],pos[1],"left")
-            if pos[-1]=="left":
-                return (pos[0],pos[1],"down")
-            if pos[-1]=="right":
-                return (pos[0],pos[1],"up")
-            if pos[-1]=="down":
-                return (pos[0],pos[1],"right")
-        if ins=="R":
-            if pos[-1]=="up":
-                return (pos[0],pos[1],"right")
-            if pos[-1]=="left":
-                return (pos[0],pos[1],"up")
-            if pos[-1]=="right":
-                return (pos[0],pos[1],"down")
-            if pos[-1]=="down":
-                return (pos[0],pos[1],"left")
+    def step(self, state, inst):
+        x,y,d = state
+        deltas = {
+            0:(0,1), #north
+            1:(1,0), #east
+            2:(0,-1), # south
+            3:(-1,0) #west
+        }
+        if inst == 'G':
+            dx,dy = deltas[d]
+            return x+dx,y+dy,d
+        elif inst == 'L':
+            return x,y,(d-1)%4
+        else:
+            return x,y,(d+1)%4
+        
         
