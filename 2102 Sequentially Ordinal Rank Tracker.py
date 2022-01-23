@@ -69,6 +69,70 @@ class SORTracker:
         self.t+=1
         return ans[1]
 
+class MinHeapEle:
+    def __init__(self,name,score):
+        self.name = name
+        self.score = score
+        
+    def __lt__(self,other):
+        if self.score > other.score:
+            return True
+        elif self.score < other.score:
+            return False
+        else:
+            return self.name < other.name
+    def toMax(self):
+        return MaxHeapEle(self.name,self.score)
+        
+class MaxHeapEle:
+    def __init__(self,name,score):
+        self.name = name
+        self.score = score
+    def __lt__(self,other):
+        if self.score > other.score:
+            return False
+        elif self.score < other.score:
+            return True
+        else:
+            return self.name > other.name
+        
+    def toMin(self):
+        return MinHeapEle(self.name,self.score)
+        
+import heapq
+class SORTracker:
+
+    def __init__(self):
+        self.minheap = []
+        self.maxheap = []
+        self.t = 1
+
+    def add(self, name: str, score: int) -> None:
+        minele = MinHeapEle(name,score)
+        maxele = MaxHeapEle(name,score)
+        if self.t == len(self.maxheap):
+
+            if maxele < self.maxheap[0]:
+                heapq.heappush(self.minheap,minele)
+            else:
+                heapq.heappush(self.maxheap,maxele)
+                popped = heapq.heappop(self.maxheap)
+                heapq.heappush(self.minheap,popped.toMin())
+        else:
+            heapq.heappush(self.maxheap,maxele)
+            
+                
+    def get(self) -> str:
+        val =  self.maxheap[0].name
+        self.t += 1
+        if self.minheap:
+            heapq.heappush(self.maxheap,heapq.heappop(self.minheap).toMax())
+        return val
+# Your SORTracker object will be instantiated and called as such:
+# obj = SORTracker()
+# obj.add(name,score)
+# param_2 = obj.get()
+
 # Your SORTracker object will be instantiated and called as such:
 # obj = SORTracker()
 # obj.add(name,score)
