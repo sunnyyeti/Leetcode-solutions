@@ -43,9 +43,9 @@
 class Solution:
     def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
         graph = {}
-        indegrees = {}
+        indegrees_dict = {}
         for r, ings in zip(recipes,ingredients):
-            indegrees[r] = len(ings)
+            indegrees_dict[r] = len(ings)
             for ing in ings:
                 graph.setdefault(ing,[]).append(r)
         all_recipes = set(recipes)
@@ -57,8 +57,8 @@ class Solution:
                 if ing in all_recipes:
                     got.add(ing)
                 for n in graph.get(ing,[]):
-                    indegrees[n] -= 1
-                    if indegrees[n] == 0:
+                    indegrees_dict[n] -= 1
+                    if indegrees_dict[n] == 0:
                         next_level.add(n)
             cur_level = next_level
         return got
