@@ -1,12 +1,12 @@
 
 
-Mon Jan 17 11:05:43 2022
+Sun Feb 27 10:10:24 2022
 Command line: TestDisk
 
 TestDisk 7.1, Data Recovery Utility, July 2019
 Christophe GRENIER <grenier@cgsecurity.org>
 https://www.cgsecurity.org
-OS: Linux, kernel 5.11.0-46-generic (#51~20.04.1-Ubuntu SMP Fri Jan 7 06:51:40 UTC 2022) x86_64
+OS: Linux, kernel 5.13.0-30-generic (#33~20.04.1-Ubuntu SMP Mon Feb 7 14:25:10 UTC 2022) x86_64
 Compiler: GCC 9.2
 ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
 User is not root!
@@ -17,13 +17,13 @@ TestDisk exited normally.
 Using locale 'LC_CTYPE=en_US.UTF-8;LC_NUMERIC=en_GB.UTF-8;LC_TIME=en_GB.UTF-8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_GB.UTF-8;LC_MESSAGES=en_US.UTF-8;LC_PAPER=en_GB.UTF-8;LC_NAME=en_GB.UTF-8;LC_ADDRESS=en_GB.UTF-8;LC_TELEPHONE=en_GB.UTF-8;LC_MEASUREMENT=en_GB.UTF-8;LC_IDENTIFICATION=en_GB.UTF-8'.
 
 
-Mon Jan 17 11:05:43 2022
+Sun Feb 27 10:10:28 2022
 Command line: TestDisk /debug
 
 TestDisk 7.1, Data Recovery Utility, July 2019
 Christophe GRENIER <grenier@cgsecurity.org>
 https://www.cgsecurity.org
-OS: Linux, kernel 5.11.0-46-generic (#51~20.04.1-Ubuntu SMP Fri Jan 7 06:51:40 UTC 2022) x86_64
+OS: Linux, kernel 5.13.0-30-generic (#33~20.04.1-Ubuntu SMP Mon Feb 7 14:25:10 UTC 2022) x86_64
 Compiler: GCC 9.2
 ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
 /dev/sda: LBA, LBA48, DCO support
@@ -35,24 +35,27 @@ ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, cur
 /dev/sdb: user_max   62533296 sectors
 /dev/sdb: native_max 62533296 sectors
 Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop17 - 0 B - 0 sectors, sector size=512
 Hard disk list
 Disk /dev/sda - 500 GB / 465 GiB - CHS 60801 255 63, sector size=512 - HGST HTS725050A7E630, S/N:TF0500WJ0PPTXL, FW:GH2OA910
 Disk /dev/sdb - 32 GB / 29 GiB - CHS 3892 255 63, sector size=512 - LITEONIT LMS-32L6M-HP, S/N:002420105049, FW:DM51707
-Disk /dev/sdc - 1000 GB / 931 GiB - CHS 121601 255 63, sector size=512 - Seagate Backup+ SL, FW:0409
 Disk /dev/loop0 - 58 MB / 55 MiB - 113536 sectors (RO), sector size=512
-Disk /dev/loop1 - 68 MB / 65 MiB - 133320 sectors (RO), sector size=512
+Disk /dev/loop1 - 58 MB / 55 MiB - 113680 sectors (RO), sector size=512
 Disk /dev/loop10 - 68 MB / 65 MiB - 133552 sectors (RO), sector size=512
-Disk /dev/loop11 - 56 MB / 54 MiB - 111080 sectors (RO), sector size=512
-Disk /dev/loop12 - 259 MB / 247 MiB - 507712 sectors (RO), sector size=512
-Disk /dev/loop13 - 554 MB / 528 MiB - 1082696 sectors (RO), sector size=512
-Disk /dev/loop2 - 33 MB / 32 MiB - 66144 sectors (RO), sector size=512
-Disk /dev/loop3 - 229 MB / 219 MiB - 448512 sectors (RO), sector size=512
-Disk /dev/loop4 - 53 MB / 50 MiB - 104360 sectors (RO), sector size=512
-Disk /dev/loop5 - 45 MB / 43 MiB - 88616 sectors (RO), sector size=512
-Disk /dev/loop6 - 58 MB / 55 MiB - 113680 sectors (RO), sector size=512
-Disk /dev/loop7 - 64 MB / 61 MiB - 126784 sectors (RO), sector size=512
-Disk /dev/loop8 - 4096 B - 8 sectors (RO), sector size=512
-Disk /dev/loop9 - 229 MB / 219 MiB - 448512 sectors (RO), sector size=512
+Disk /dev/loop11 - 53 MB / 50 MiB - 104360 sectors (RO), sector size=512
+Disk /dev/loop12 - 64 MB / 61 MiB - 126792 sectors (RO), sector size=512
+Disk /dev/loop13 - 554 MB / 528 MiB - 1082576 sectors (RO), sector size=512
+Disk /dev/loop14 - 259 MB / 247 MiB - 507712 sectors (RO), sector size=512
+Disk /dev/loop15 - 229 MB / 219 MiB - 448512 sectors (RO), sector size=512
+Disk /dev/loop16 - 229 MB / 219 MiB - 448512 sectors (RO), sector size=512
+Disk /dev/loop2 - 68 MB / 65 MiB - 133320 sectors (RO), sector size=512
+Disk /dev/loop3 - 310 MB / 295 MiB - 605624 sectors (RO), sector size=512
+Disk /dev/loop4 - 4096 B - 8 sectors (RO), sector size=512
+Disk /dev/loop5 - 260 MB / 248 MiB - 509456 sectors (RO), sector size=512
+Disk /dev/loop6 - 56 MB / 54 MiB - 111080 sectors (RO), sector size=512
+Disk /dev/loop7 - 64 MB / 61 MiB - 126752 sectors (RO), sector size=512
+Disk /dev/loop8 - 45 MB / 43 MiB - 89264 sectors (RO), sector size=512
+Disk /dev/loop9 - 554 MB / 528 MiB - 1082616 sectors (RO), sector size=512
 
 
 TestDisk exited normally.
