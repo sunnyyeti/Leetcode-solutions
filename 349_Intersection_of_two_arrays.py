@@ -12,4 +12,21 @@
 
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        return list(set(nums1).intersection(set(nums2)))
+        nums1.sort()
+        nums2.sort()
+        ans = []
+        i,j = 0,0
+        while i<len(nums1) and j<len(nums2):
+            n1 = nums1[i]
+            n2 = nums2[j]
+            if n1 < n2:
+                i+=1
+            elif n1 > n2:
+                j += 1
+            else:
+                ans.append(n1)
+                while i<len(nums1) and nums1[i] == n1:
+                    i+=1
+                while j<len(nums2) and nums2[j] == n2:
+                    j+=1
+        return ans

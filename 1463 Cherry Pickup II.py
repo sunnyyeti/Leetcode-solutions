@@ -90,3 +90,29 @@ class Solution:
                     dp2[i][j] += next_row_max
             dp1 = dp2
         return dp1[0][0]
+
+
+        
+from functools import cache
+from itertools import product
+class Solution:
+    def cherryPickup(self, grid: List[List[int]]) -> int:
+        rows,cols = len(grid),len(grid[0])
+        @cache
+        def max_fruits(row,col1,col2):
+            f1 = grid[row][col1]
+            f2 = grid[row][col2]
+            f = f1+f2 if col1!=col2 else f1
+            next_row = row+1
+            if next_row >= rows:
+                return f
+            next_col1s = [col1,col1-1,col1+1]
+            next_col2s = [col2,col2-1,col2+1]
+            next_f = float("-inf")
+            for nc1,nc2 in product(next_col1s,next_col2s):
+                if 0<=nc1<cols and 0<=nc2<cols:
+                    next_f = max(next_f,max_fruits(next_row,nc1,nc2))
+            return f+next_f
+        return max_fruits(0,0,cols-1)
+            
+        
